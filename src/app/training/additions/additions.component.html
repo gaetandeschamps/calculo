@@ -1,0 +1,18 @@
+<h1 class="card-title">Entrainement aux additions</h1>
+<h2 class="mt-5 mb-5">{{randomNumbers[0]}} + {{randomNumbers[1]}} = ?</h2>
+
+<h3 *ngIf="answerCheck == true" class="mt-5 text-success mb-3">Bonne réponse !</h3>
+<h3 *ngIf="answerCheck == false" class="mt-5 text-danger mb-3">Dommage, la bonne réponse était : {{answer}}</h3>
+<button *ngIf="answerCheck != null" class="btn btn-outline-dark mb-5" (click)="setCalcul()">Calcul suivant</button>
+
+<form>
+  <div class="form-row">
+    <div class="input-group w-50 mx-auto">
+      <input type="number" class="form-control form-control-lg text-center" placeholder="Écris ta réponse" [(ngModel)]="userAnswer"
+        name="userAnswer" [disabled]="answerCheck != null">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-outline-primary" (click)="additionAnswer()" [disabled]="answerCheck != null">Valider</button>
+      </div>
+    </div>
+  </div>
+</form>

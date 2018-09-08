@@ -7,17 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
 
-  utilisateur: String = 'thomas';
-  pokemon: String = 'pikachu';
-  show = true;
-
   constructor() { }
 
   ngOnInit() {
-  }
-
-  showPokemon() {
-    this.show = !this.show;
   }
 
 }
