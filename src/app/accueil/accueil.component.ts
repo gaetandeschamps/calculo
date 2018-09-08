@@ -9,7 +9,7 @@ export class AccueilComponent implements OnInit {
 
   utilisateur: String = 'thomas';
   pokemon: String = 'pikachu';
-  show: boolean = true;
+  show = true;
 
   constructor() { }
 
