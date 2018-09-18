@@ -47,7 +47,6 @@ export class CalculComponent implements OnInit {
     this.answerCheck = null;
     this.button = 'Valider';
     this.parameters = this.calculService.setAddition(15);
-    console.log(this.parameters);
   }
 
 }

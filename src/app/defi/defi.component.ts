@@ -14,14 +14,18 @@ export class DefiComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.nbQuestion = 1;
-    this.nbGoodAnswers = 0;
-    this.nbFalseAnswers = 0;
+    this.replay();
   }
 
   nextQuestion(answerType: boolean) {
     answerType ? this.nbGoodAnswers++ : this.nbFalseAnswers++;
     this.nbQuestion++;
+  }
+
+  replay() {
+    this.nbQuestion = 1;
+    this.nbGoodAnswers = 0;
+    this.nbFalseAnswers = 0;
   }
 
 }
