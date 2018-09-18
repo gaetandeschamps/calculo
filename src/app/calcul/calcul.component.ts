@@ -37,6 +37,7 @@ export class CalculComponent implements OnInit {
     if(this.nbQuestion === 10){
       this.boutonCalculSuivant = "Afficher les résultats";
     }
+    this.userAnswer = null;
   }
 
   setCalcul() {
