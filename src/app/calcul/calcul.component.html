@@ -3,16 +3,18 @@
 
 <h3 *ngIf="answerCheck === true" class="mt-5 text-success mb-3">
   Bonne réponse !
+  Votre réponse était : {{userAnswer}}
 </h3>
-<h3 *ngIf="nbredeVie === 1" class="mt-5 text-danger mb-3">
+<h3 *ngIf="answerCheck === false && nbredeVie === 1" class="mt-5 text-danger mb-3" [hidden]="">
   Réponse fausse, mais il te reste une chance !
 </h3>
 <h3 *ngIf="nbredeVie === 0 && userAnswer !== answer" class="mt-5 text-danger mb-3">
   Dommage, la bonne réponse était : {{parameters.answer}}
+  Votre réponse était : {{userAnswer}}
 </h3>
 
-<button *ngIf="nbredeVie === 0 || answerCheck === true" class="btn btn-outline-dark mb-5" (click)="setCalcul()">
-  Calcul suivant
+<button *ngIf="nbredeVie === 0 || answerCheck === true" class="btn btn-outline-dark mb-5" (click)="setCalcul(); nombreQuestion()">
+  {{ boutonCalculSuivant }}
 </button>
 
 <form>
@@ -22,7 +24,7 @@
         name="userAnswer" [disabled]="nbredeVie === 0">
       <div class="input-group-append">
         <button type="submit" class="btn btn-outline-primary" (click)="additionAnswer()" [disabled]="userAnswer === null">
-          {{button}}
+          {{ boutonValider }}
         </button>
       </div>
     </div>
