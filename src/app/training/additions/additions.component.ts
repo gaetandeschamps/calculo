@@ -29,7 +29,7 @@ export class AdditionsComponent implements OnInit {
     } else {
       this.answerCheck = false;
       this.nbredeVie --;
-      this.button = "Retentez ma chance !";
+      this.button = "Retenter ma chance !";
     }
     this.userAnswer = null;
   } 
