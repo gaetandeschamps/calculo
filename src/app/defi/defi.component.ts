@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefiComponent implements OnInit {
 
+  private nbQuestion: number;
+  private nbGoodAnswers: number;
+  private nbFalseAnswers: number;
+
   constructor() { }
 
   ngOnInit() {
+    this.nbQuestion = 1;
+    this.nbGoodAnswers = 0;
+    this.nbFalseAnswers = 0;
+  }
+
+  nextQuestion(answerType: boolean) {
+    answerType ? this.nbGoodAnswers++ : this.nbFalseAnswers++;
+    this.nbQuestion++;
   }
 
 }

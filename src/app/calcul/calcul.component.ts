@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CalculService } from '../calcul.service';
 
 @Component({
@@ -6,6 +6,8 @@ import { CalculService } from '../calcul.service';
   templateUrl: './calcul.component.html'
 })
 export class CalculComponent implements OnInit {
+
+  @Output() nextQuestion = new EventEmitter<boolean>();
 
   private parameters;
   private userAnswer: number;
@@ -33,6 +35,13 @@ export class CalculComponent implements OnInit {
   }
 
   setCalcul() {
+
+    if (this.answerCheck === true) {
+      this.nextQuestion.emit(true);
+    } else if (this.answerCheck === false) {
+      this.nextQuestion.emit(false);
+    }
+
     this.nbredeVie = 2;
     this.userAnswer = null;
     this.answerCheck = null;

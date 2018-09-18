@@ -28,11 +28,11 @@ export class AdditionsComponent implements OnInit {
       this.answerCheck = true;
     } else {
       this.answerCheck = false;
-      this.nbredeVie --;
-      this.button = "Retenter ma chance !";
+      this.nbredeVie--;
+      this.button = 'Retenter ma chance !';
     }
     this.userAnswer = null;
-  } 
+  }
 
   setCalcul() {
     this.nbredeVie = 2;

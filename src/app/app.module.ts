@@ -33,13 +33,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'defi',
-    component: DefiComponent,
-    children: [
-      {
-        path: 'facile',
-        component: CalculComponent
-      }
-    ]
+    component: DefiComponent
   }
 ];
 
