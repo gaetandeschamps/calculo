@@ -28,7 +28,7 @@ export class CalculService {
       'answer': answer,
       'title': 'Résous l\'addition',
       'operator': '+'
-    }
+    };
     return calculParameters;
   }
 
