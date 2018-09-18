@@ -18,7 +18,7 @@
 </h3>
 
 <button 
-  *ngIf="nbredeVie === 0" 
+  *ngIf="nbredeVie === 0 || answerCheck === true" 
   class="btn btn-outline-dark mb-5" 
   (click)="setCalcul()">
   Calcul suivant
