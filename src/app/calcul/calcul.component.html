@@ -3,14 +3,12 @@
 
 <h3 *ngIf="answerCheck === true" class="mt-5 text-success mb-3">
   Bonne réponse !
-  Votre réponse était : {{userAnswer}}
 </h3>
-<h3 *ngIf="answerCheck === false && nbredeVie === 1" class="mt-5 text-danger mb-3" [hidden]="">
+<h3 *ngIf="answerCheck === false && nbredeVie === 1" class="mt-5 text-danger mb-3">
   Réponse fausse, mais il te reste une chance !
 </h3>
 <h3 *ngIf="nbredeVie === 0 && userAnswer !== answer" class="mt-5 text-danger mb-3">
   Dommage, la bonne réponse était : {{parameters.answer}}
-  Votre réponse était : {{userAnswer}}
 </h3>
 
 <button *ngIf="nbredeVie === 0 || answerCheck === true" class="btn btn-outline-dark mb-5" (click)="setCalcul(); nombreQuestion()">
