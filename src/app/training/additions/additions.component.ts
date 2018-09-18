@@ -29,9 +29,9 @@ export class AdditionsComponent implements OnInit {
     } else {
       this.answerCheck = false;
       this.nbredeVie --;
+      this.button = "Retentez ma chance !";
     }
     this.userAnswer = null;
-    this.button = "Retentez ma chance !";
   } 
 
   setCalcul() {
