@@ -8,6 +8,8 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { TrainingComponent } from './training/training.component';
 import { AdditionsComponent } from './training/additions/additions.component';
 import { CalculService } from './calcul.service';
+import { CalculComponent } from './calcul/calcul.component';
+import { DefiComponent } from './defi/defi.component';
 
 const appRoutes: Routes = [
   {
@@ -24,8 +26,18 @@ const appRoutes: Routes = [
     component: TrainingComponent,
     children: [
       {
-        path: 'additions',
-        component: AdditionsComponent
+        path: 'calcul',
+        component: CalculComponent
+      }
+    ]
+  },
+  {
+    path: 'defi',
+    component: DefiComponent,
+    children: [
+      {
+        path: 'facile',
+        component: CalculComponent
       }
     ]
   }
@@ -36,7 +48,9 @@ const appRoutes: Routes = [
     AppComponent,
     AccueilComponent,
     TrainingComponent,
-    AdditionsComponent
+    AdditionsComponent,
+    CalculComponent,
+    DefiComponent
   ],
   imports: [
     BrowserModule,

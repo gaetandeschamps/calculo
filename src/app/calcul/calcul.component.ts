@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CalculService } from '../../calcul.service';
+import { CalculService } from '../calcul.service';
 
 @Component({
-  selector: 'app-additions',
-  templateUrl: './additions.component.html',
-  styleUrls: ['./additions.component.css']
+  selector: 'app-calcul',
+  templateUrl: './calcul.component.html'
 })
-export class AdditionsComponent implements OnInit {
+export class CalculComponent implements OnInit {
 
-  private randomNumbers: number[];
-  private answer: number;
+  private parameters;
   private userAnswer: number;
   private answerCheck: boolean;
   private nbredeVie = 2;
@@ -24,23 +22,23 @@ export class AdditionsComponent implements OnInit {
   }
 
   additionAnswer() {
-    if (this.userAnswer === this.answer) {
+    if (this.userAnswer === this.parameters.answer) {
       this.answerCheck = true;
     } else {
       this.answerCheck = false;
-      this.nbredeVie --;
-      this.button = "Retenter ma chance !";
+      this.nbredeVie--;
     }
     this.userAnswer = null;
-  } 
+    this.button = 'Retenter ma chance !';
+  }
 
   setCalcul() {
     this.nbredeVie = 2;
     this.userAnswer = null;
     this.answerCheck = null;
-    this.randomNumbers = this.calculService.generateRandomNumbers(15);
-    this.answer = this.randomNumbers[0] + this.randomNumbers[1];
     this.button = 'Valider';
+    this.parameters = this.calculService.setAddition(15);
+    console.log(this.parameters);
   }
 
 }
