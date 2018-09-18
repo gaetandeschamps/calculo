@@ -1,5 +1,5 @@
-<h1 class="card-title">Entrainement aux additions</h1>
-<h2 class="mt-5 mb-5">{{randomNumbers[0]}} + {{randomNumbers[1]}} = ?</h2>
+<h1 class="card-title">{{parameters.title}}</h1>
+<h2 class="mt-5 mb-5">{{parameters.firstNumber}} {{parameters.operator}} {{parameters.secondNumber}} = ?</h2>
 
 <h3 *ngIf="answerCheck === true" class="mt-5 text-success mb-3">
   Bonne réponse !
@@ -8,7 +8,7 @@
   Réponse fausse, mais il te reste une chance !
 </h3>
 <h3 *ngIf="nbredeVie === 0 && userAnswer !== answer" class="mt-5 text-danger mb-3">
-  Dommage, la bonne réponse était : {{answer}}
+  Dommage, la bonne réponse était : {{parameters.answer}}
 </h3>
 
 <button *ngIf="nbredeVie === 0 || answerCheck === true" class="btn btn-outline-dark mb-5" (click)="setCalcul()">
