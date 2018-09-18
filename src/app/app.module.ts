@@ -9,6 +9,7 @@ import { TrainingComponent } from './training/training.component';
 import { AdditionsComponent } from './training/additions/additions.component';
 import { CalculService } from './calcul.service';
 import { CalculComponent } from './calcul/calcul.component';
+import { DefiComponent } from './defi/defi.component';
 
 const appRoutes: Routes = [
   {
@@ -29,6 +30,16 @@ const appRoutes: Routes = [
         component: CalculComponent
       }
     ]
+  },
+  {
+    path: 'defi',
+    component: DefiComponent,
+    children: [
+      {
+        path: 'facile',
+        component: CalculComponent
+      }
+    ]
   }
 ];
 
@@ -38,7 +49,8 @@ const appRoutes: Routes = [
     AccueilComponent,
     TrainingComponent,
     AdditionsComponent,
-    CalculComponent
+    CalculComponent,
+    DefiComponent
   ],
   imports: [
     BrowserModule,

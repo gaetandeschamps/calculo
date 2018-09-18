@@ -29,7 +29,7 @@ export class CalculComponent implements OnInit {
       this.nbredeVie--;
     }
     this.userAnswer = null;
-    this.button = 'Retentez ma chance !';
+    this.button = 'Retenter ma chance !';
   }
 
   setCalcul() {
