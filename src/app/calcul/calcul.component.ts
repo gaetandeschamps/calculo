@@ -9,15 +9,15 @@ import { CalculService } from '../calcul.service';
 export class CalculComponent implements OnInit {
 
   @Output() nextQuestion = new EventEmitter<boolean>();
-  
+
   private parameters;
   private userAnswer: number;
   private answerCheck: boolean;
-  private nbredeVie: number=1;
+  private nbredeVie: number = 1;
   private boutonValider: String;
   private boutonCalculSuivant: String;
-  private nbQuestion: number=1;
-  
+  private nbQuestion: number = 1;
+
   constructor(
     private calculService: CalculService
   ) { }
@@ -32,10 +32,10 @@ export class CalculComponent implements OnInit {
     } else {
       this.answerCheck = false;
       this.nbredeVie--;
-      this.boutonValider = 'Retenter ma chance !'; 
+      this.boutonValider = 'Retenter ma chance !';
     }
-    if(this.nbQuestion === 10){
-      this.boutonCalculSuivant = "Afficher les résultats";
+    if (this.nbQuestion === 10) {
+      this.boutonCalculSuivant = 'Afficher les résultats';
     }
     this.userAnswer = null;
   }
@@ -51,11 +51,11 @@ export class CalculComponent implements OnInit {
     this.answerCheck = null;
     this.boutonValider = 'Valider';
     this.boutonCalculSuivant = 'Calcul Suivant';
-    this.parameters = this.calculService.setAddition(15);
-    console.log(this.parameters);    
+    this.parameters = this.calculService.setAddition(15); // c'est ici si on veut genérer alétoire
+    console.log(this.parameters);
   }
 
-  nombreQuestion(){
+  nombreQuestion() {
     this.nbQuestion++;
     return this.nbQuestion;
   }
