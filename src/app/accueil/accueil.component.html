@@ -19,9 +19,9 @@
           <div class="card-header h3">Choisis ton défi</div>
           <div class="card-body row align-items-center">
             <div class="btn-group-vertical btn-group-lg w-75 mx-auto">
-              <button class="btn btn-success" routerLink="/defi" routerLinkActive="router-link-active"><i class="fas fa-kiss-beam mr-2"></i>Facile</button>
-              <!-- <button class="btn btn-warning"><i class="fas fa-flushed mr-2"></i>Moyen</button>
-              <button class="btn btn-danger"><i class="fas fa-grimace mr-2"></i>Difficile</button> -->
+              <button class="btn btn-success" routerLink="/defi" [queryParams]="{difficulte: 'facile'}" routerLinkActive="router-link-active"><i class="fas fa-kiss-beam mr-2"></i>Facile</button>
+              <button class="btn btn-warning" routerLink="/defi" [queryParams]="{difficulte: 'moyen'}"><i class="fas fa-flushed mr-2"></i>Moyen</button>
+              <button class="btn btn-danger" routerLink="/defi" [queryParams]="{difficulte: 'difficile'}"><i class="fas fa-grimace mr-2"></i>Difficile</button>
             </div>
           </div>
         </div>

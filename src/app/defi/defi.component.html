@@ -12,7 +12,7 @@
         <!-- <p>bonnes réponses = {{nbGoodAnswers}}</p>
         <p>mauvaises réponses = {{nbFalseAnswers}}</p> -->
       </div>
-      <app-calcul (nextQuestion)="nextQuestion($event)" *ngIf="nbQuestion <= 10" else results></app-calcul>
+      <app-calcul [difficulte]=difficulte (nextQuestion)="nextQuestion($event)" *ngIf="nbQuestion <= 10" else results></app-calcul>
       <div *ngIf="nbQuestion > 10">
         <h2>{{nbGoodAnswers}} bonne(s) réponses</h2>
         <h2>{{nbFalseAnswers}} mauvaise(s) réponses</h2>
