@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/calculo",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
