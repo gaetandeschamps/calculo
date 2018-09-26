@@ -16,10 +16,10 @@
 </button>
 
 <form>
-  <div class="form-row">
+  <div class="form-row" *ngIf="nbredeVie != 0 && answerCheck != true">
     <div class="input-group w-50 mx-auto">
       <input type="number" class="form-control form-control-lg text-center" placeholder="Écris ta réponse" [(ngModel)]="userAnswer"
-        name="userAnswer" [disabled]="nbredeVie === 0">
+        name="userAnswer" [disabled]="nbredeVie === 0 || answerCheck === true">
       <div class="input-group-append">
         <button type="submit" class="btn btn-outline-primary" (click)="additionAnswer()" [disabled]="userAnswer === null">
           {{ boutonValider }}
