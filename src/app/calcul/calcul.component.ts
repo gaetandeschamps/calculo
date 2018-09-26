@@ -16,11 +16,11 @@ export class CalculComponent implements OnInit {
   private parameters;
   private userAnswer: number;
   private answerCheck: boolean;
-  private nbredeVie: number = 1;
+  private nbredeVie = 1;
   private boutonValider: String;
   private boutonCalculSuivant: String;
-  private nbQuestion: number = 1;
-  private range:number=1;
+  private nbQuestion = 1;
+  private range = 1;
 
   constructor(
     private calculService: CalculService
@@ -30,7 +30,7 @@ export class CalculComponent implements OnInit {
 
     this.setRange(this.difficulte);
     this.setCalcul();
-    }
+  }
 
   additionAnswer() {
     if (this.userAnswer === this.parameters.answer) {
@@ -47,7 +47,7 @@ export class CalculComponent implements OnInit {
   }
 
   setCalcul() {
-    
+
     if (this.answerCheck === true) {
       this.nextQuestion.emit(true);
     } else if (this.answerCheck === false) {
@@ -67,20 +67,14 @@ export class CalculComponent implements OnInit {
     return this.nbQuestion;
   }
 
-  setRange(difficulte)
-  {
-      if(difficulte=="facile")
-      {
-          this.range=15;
-      }
-      else if(difficulte=="moyen")
-      {
-        this.range=75;
-      }
-      else if(difficulte=="difficile")
-      {
-        this.range=1000;
-      }
+  setRange(difficulte) {
+    if (difficulte === 'facile') {
+      this.range = 15;
+    } else if (difficulte === 'moyen') {
+      this.range = 75;
+    } else if (difficulte === 'difficile') {
+      this.range = 1000;
+    }
   }
 
 
