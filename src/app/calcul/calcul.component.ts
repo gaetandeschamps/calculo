@@ -30,7 +30,7 @@ export class CalculComponent implements OnInit {
 
     this.setRange(this.difficulte);
     this.setCalcul();
-  }
+    }
 
   additionAnswer() {
     if (this.userAnswer === this.parameters.answer) {
