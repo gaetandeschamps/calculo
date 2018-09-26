@@ -39,6 +39,7 @@ export class CalculComponent implements OnInit {
       this.answerCheck = false;
       this.nbredeVie--;
       this.boutonValider = 'Retenter ma chance !';
+      document.getElementById("input").focus();
     }
     if (this.nbQuestion === 10) {
       this.boutonCalculSuivant = 'Afficher les résultats';
@@ -53,13 +54,15 @@ export class CalculComponent implements OnInit {
     } else if (this.answerCheck === false) {
       this.nextQuestion.emit(false);
     }
+
     this.nbredeVie = 2;
     this.userAnswer = null;
     this.answerCheck = null;
     this.boutonValider = 'Valider';
     this.boutonCalculSuivant = 'Calcul Suivant';
-    this.parameters = this.calculService.setAddition(this.range); // c'est ici si on veut genérer alétoire
+    this.parameters = this.calculService.setAddition(this.range); // c'est ici si on veut genérer aléatoirement
     console.log(this.parameters);
+    document.getElementById("input").focus();
   }
 
   nombreQuestion() {
@@ -71,7 +74,7 @@ export class CalculComponent implements OnInit {
   {
       if(difficulte=="facile")
       {
-          this.range=15;
+        this.range=15;
       }
       else if(difficulte=="moyen")
       {
