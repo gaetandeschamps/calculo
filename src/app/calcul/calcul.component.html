@@ -11,17 +11,6 @@
   Dommage, la bonne réponse était : {{parameters.answer}}
 </h3>
 
-<<<<<<< HEAD
-<button *ngIf="nbredeVie === 0 || answerCheck === true" ng-setfocus="focusController" id="boutonCalculSuivant" class="btn btn-outline-dark mb-5" (click)="setCalcul(); nombreQuestion()">
-  {{ boutonCalculSuivant }}
-</button>
-
-<form>
-  <div class="form-row">
-    <div *ngIf="nbredeVie !== 0 && answerCheck !== true" class="input-group w-50 mx-auto" >
-      <input type="number" id="input" ng-setfocus="focusController" class="form-control form-control-lg text-center" placeholder="Écris ta réponse" [(ngModel)]="userAnswer"
-        name="userAnswer" [disabled]="nbredeVie === 0 || answerCheck === true">
-=======
 <button #calculSuivant *ngIf="nbredeVie === 0 || answerCheck === true" class="btn btn-outline-dark mb-5" (click)="setCalcul(); nombreQuestion()" >
   {{ boutonCalculSuivant }} {{calculSuivant.focus()}}
 </button>
@@ -31,7 +20,6 @@
     <div class="input-group w-50 mx-auto">
       <input #myInput type="number" class="form-control form-control-lg text-center" placeholder="Écris ta réponse" [(ngModel)]="userAnswer"
         name="userAnswer" [disabled]="nbredeVie === 0 || answerCheck === true">{{ myInput.focus() }}
->>>>>>> master
       <div class="input-group-append">
         <button type="submit" class="btn btn-outline-primary" (click)="additionAnswer()" [disabled]="userAnswer === null || answerCheck === true">
           {{ boutonValider }}

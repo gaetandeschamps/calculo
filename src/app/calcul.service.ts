@@ -34,7 +34,7 @@ export class CalculService {
 
   setSoustraction(range: number) {
     const firstNumber: number = this.randomNumber(range);
-    const secondNumber: number = this.randomNumber(range);
+    const secondNumber: number = this.randomNumber(firstNumber);
     const answer: number = firstNumber - secondNumber;
     const calculParameters = {
       'firstNumber': firstNumber,
@@ -61,15 +61,15 @@ export class CalculService {
   }
 
   setDivison(range: number) {
-    const firstNumber: number = this.randomNumber(range);
-    const secondNumber: number = firstNumber * this.randomNumber(range);
+    const secondNumber: number = this.randomNumber(range);
+    const firstNumber: number = secondNumber * this.randomNumber(range);
     const answer: number = firstNumber / secondNumber;
     const calculParameters = {
       'firstNumber': firstNumber,
       'secondNumber': secondNumber,
       'answer': answer,
       'title': 'Résous la division',
-      'operator': '/'
+      'operator': '÷'
     };
     return calculParameters;
   }

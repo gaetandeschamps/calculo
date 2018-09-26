@@ -21,6 +21,7 @@ export class CalculComponent implements OnInit {
   private boutonCalculSuivant: String;
   private nbQuestion: number = 1;
   private range:number=1;
+  private operationCase: number;
 
   constructor(
     private calculService: CalculService
@@ -59,7 +60,25 @@ export class CalculComponent implements OnInit {
     this.answerCheck = null;
     this.boutonValider = 'Valider';
     this.boutonCalculSuivant = 'Calcul Suivant';
-    this.parameters = this.calculService.setAddition(this.range); // c'est ici si on veut genérer aléatoirement
+    this.operationCase = this.calculService.randomNumber(4);
+    switch(this.operationCase){
+      case 1:{
+        this.parameters = this.calculService.setAddition(this.range);
+        break;
+      }
+      case 2:{
+        this.parameters = this.calculService.setSoustraction(this.range);
+        break;
+      }
+      case 3:{
+        this.parameters = this.calculService.setMultiplication(this.range);
+        break;
+      }
+      case 4:{
+        this.parameters = this.calculService.setDivison(this.range);
+        break;
+      }
+    }    
     console.log(this.parameters);
   }
 
