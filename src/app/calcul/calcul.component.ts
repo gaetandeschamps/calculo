@@ -76,6 +76,4 @@ export class CalculComponent implements OnInit {
       this.range = 1000;
     }
   }
-
-
 }
