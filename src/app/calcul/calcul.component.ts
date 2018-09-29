@@ -19,8 +19,8 @@ export class CalculComponent implements OnInit {
   private nbredeVie = 1;
   private boutonValider: String;
   private boutonCalculSuivant: String;
-  private nbQuestion: number = 1;
-  private range:number=1;
+  private nbQuestion = 1;
+  private range = 1;
   private operationCase: number;
 
   constructor(
@@ -61,24 +61,24 @@ export class CalculComponent implements OnInit {
     this.boutonValider = 'Valider';
     this.boutonCalculSuivant = 'Calcul Suivant';
     this.operationCase = this.calculService.randomNumber(4);
-    switch(this.operationCase){
-      case 1:{
+    switch (this.operationCase) {
+      case 1: {
         this.parameters = this.calculService.setAddition(this.range);
         break;
       }
-      case 2:{
+      case 2: {
         this.parameters = this.calculService.setSoustraction(this.range);
         break;
       }
-      case 3:{
+      case 3: {
         this.parameters = this.calculService.setMultiplication(this.range);
         break;
       }
-      case 4:{
+      case 4: {
         this.parameters = this.calculService.setDivison(this.range);
         break;
       }
-    }    
+    }
     console.log(this.parameters);
   }
 
@@ -87,19 +87,13 @@ export class CalculComponent implements OnInit {
     return this.nbQuestion;
   }
 
-  setRange(difficulte)
-  {
-      if(difficulte=="facile")
-      {
-        this.range=15;
-      }
-      else if(difficulte=="moyen")
-      {
-        this.range=75;
-      }
-      else if(difficulte=="difficile")
-      {
-        this.range=1000;
-      }
+  setRange(difficulte) {
+    if (difficulte === 'facile') {
+      this.range = 15;
+    } else if (difficulte === 'moyen') {
+      this.range = 75;
+    } else if (difficulte === 'difficile') {
+      this.range = 1000;
+    }
   }
 }
