@@ -11,15 +11,15 @@
   Dommage, la bonne réponse était : {{parameters.answer}}
 </h3>
 
-<button #calculSuivant *ngIf="nbredeVie === 0 || answerCheck === true" class="btn btn-outline-dark mb-5" (click)="setCalcul(); nombreQuestion()" >
-  {{ boutonCalculSuivant }} {{calculSuivant.focus()}}
+<button *ngIf="nbredeVie === 0 || answerCheck === true" id="boutonCalculSuivant" class="btn btn-outline-dark mb-5" (click)="setCalcul(); nombreQuestion()">
+  {{ boutonCalculSuivant }}
 </button>
 
 <form>
-  <div class="form-row" *ngIf="nbredeVie != 0 && answerCheck != true">
+  <div class="form-row">
     <div class="input-group w-50 mx-auto">
-      <input #myInput type="number" class="form-control form-control-lg text-center" placeholder="Écris ta réponse" [(ngModel)]="userAnswer"
-        name="userAnswer" [disabled]="nbredeVie === 0 || answerCheck === true">{{ myInput.focus() }}
+      <input type="number" id="input" class="form-control form-control-lg text-center" placeholder="Écris ta réponse" [(ngModel)]="userAnswer"
+        name="userAnswer" [disabled]="nbredeVie === 0 || answerCheck === true">
       <div class="input-group-append">
         <button type="submit" class="btn btn-outline-primary" (click)="additionAnswer()" [disabled]="userAnswer === null || answerCheck === true">
           {{ boutonValider }}

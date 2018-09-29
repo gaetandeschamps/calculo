@@ -19,14 +19,9 @@ export class CalculComponent implements OnInit {
   private nbredeVie = 1;
   private boutonValider: String;
   private boutonCalculSuivant: String;
-<<<<<<< HEAD
   private nbQuestion: number = 1;
   private range:number=1;
   private operationCase: number;
-=======
-  private nbQuestion = 1;
-  private range = 1;
->>>>>>> master
 
   constructor(
     private calculService: CalculService
@@ -92,22 +87,6 @@ export class CalculComponent implements OnInit {
     return this.nbQuestion;
   }
 
-<<<<<<< HEAD
-  setRange(difficulte)
-  {
-      if(difficulte=="facile")
-      {
-        this.range=15;
-      }
-      else if(difficulte=="moyen")
-      {
-        this.range=75;
-      }
-      else if(difficulte=="difficile")
-      {
-        this.range=1000;
-      }
-=======
   setRange(difficulte) {
     if (difficulte === 'facile') {
       this.range = 15;
@@ -116,7 +95,6 @@ export class CalculComponent implements OnInit {
     } else if (difficulte === 'difficile') {
       this.range = 1000;
     }
->>>>>>> master
   }
   
 
