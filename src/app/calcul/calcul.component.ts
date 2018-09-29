@@ -19,8 +19,14 @@ export class CalculComponent implements OnInit {
   private nbredeVie = 1;
   private boutonValider: String;
   private boutonCalculSuivant: String;
+<<<<<<< HEAD
+  private nbQuestion: number = 1;
+  private range:number=1;
+  private operationCase: number;
+=======
   private nbQuestion = 1;
   private range = 1;
+>>>>>>> master
 
   constructor(
     private calculService: CalculService
@@ -53,12 +59,31 @@ export class CalculComponent implements OnInit {
     } else if (this.answerCheck === false) {
       this.nextQuestion.emit(false);
     }
+
     this.nbredeVie = 2;
     this.userAnswer = null;
     this.answerCheck = null;
     this.boutonValider = 'Valider';
     this.boutonCalculSuivant = 'Calcul Suivant';
-    this.parameters = this.calculService.setAddition(this.range); // c'est ici si on veut genérer alétoire
+    this.operationCase = this.calculService.randomNumber(4);
+    switch(this.operationCase){
+      case 1:{
+        this.parameters = this.calculService.setAddition(this.range);
+        break;
+      }
+      case 2:{
+        this.parameters = this.calculService.setSoustraction(this.range);
+        break;
+      }
+      case 3:{
+        this.parameters = this.calculService.setMultiplication(this.range);
+        break;
+      }
+      case 4:{
+        this.parameters = this.calculService.setDivison(this.range);
+        break;
+      }
+    }    
     console.log(this.parameters);
   }
 
@@ -67,6 +92,22 @@ export class CalculComponent implements OnInit {
     return this.nbQuestion;
   }
 
+<<<<<<< HEAD
+  setRange(difficulte)
+  {
+      if(difficulte=="facile")
+      {
+        this.range=15;
+      }
+      else if(difficulte=="moyen")
+      {
+        this.range=75;
+      }
+      else if(difficulte=="difficile")
+      {
+        this.range=1000;
+      }
+=======
   setRange(difficulte) {
     if (difficulte === 'facile') {
       this.range = 15;
@@ -75,5 +116,11 @@ export class CalculComponent implements OnInit {
     } else if (difficulte === 'difficile') {
       this.range = 1000;
     }
+>>>>>>> master
   }
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> 673858c85f47ff1ad83ef5c994898ef913adf34a
 }

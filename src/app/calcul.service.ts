@@ -32,4 +32,46 @@ export class CalculService {
     return calculParameters;
   }
 
+  setSoustraction(range: number) {
+    const firstNumber: number = this.randomNumber(range);
+    const secondNumber: number = this.randomNumber(firstNumber);
+    const answer: number = firstNumber - secondNumber;
+    const calculParameters = {
+      'firstNumber': firstNumber,
+      'secondNumber': secondNumber,
+      'answer': answer,
+      'title': 'Résous la soustraction',
+      'operator': '-'
+    };
+    return calculParameters;
+  }
+
+  setMultiplication(range: number) {
+    const firstNumber: number = this.randomNumber(range);
+    const secondNumber: number = this.randomNumber(range);
+    const answer: number = firstNumber * secondNumber;
+    const calculParameters = {
+      'firstNumber': firstNumber,
+      'secondNumber': secondNumber,
+      'answer': answer,
+      'title': 'Résous la multiplication',
+      'operator': 'x'
+    };
+    return calculParameters;
+  }
+
+  setDivison(range: number) {
+    const secondNumber: number = this.randomNumber(range);
+    const firstNumber: number = secondNumber * this.randomNumber(range);
+    const answer: number = firstNumber / secondNumber;
+    const calculParameters = {
+      'firstNumber': firstNumber,
+      'secondNumber': secondNumber,
+      'answer': answer,
+      'title': 'Résous la division',
+      'operator': '÷'
+    };
+    return calculParameters;
+  }
+
 }

@@ -21,7 +21,7 @@
       <input #myInput type="number" class="form-control form-control-lg text-center" placeholder="Écris ta réponse" [(ngModel)]="userAnswer"
         name="userAnswer" [disabled]="nbredeVie === 0 || answerCheck === true">{{ myInput.focus() }}
       <div class="input-group-append">
-        <button type="submit" class="btn btn-outline-primary" (click)="additionAnswer()" [disabled]="userAnswer === null">
+        <button type="submit" class="btn btn-outline-primary" (click)="additionAnswer()" [disabled]="userAnswer === null || answerCheck === true">
           {{ boutonValider }}
         </button>
       </div>
