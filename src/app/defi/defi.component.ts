@@ -11,13 +11,12 @@ export class DefiComponent implements OnInit {
   private nbQuestion: number;
   private nbGoodAnswers: number;
   private nbFalseAnswers: number;
-  private difficulte:string;
+  private difficulte: number;
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
-          this.difficulte = params['difficulte'];
-          console.log(this.difficulte); // Print the parameter to the console. 
-      });
+      this.difficulte = params['difficulte'];
+    });
   }
 
   ngOnInit() {
