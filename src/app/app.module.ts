@@ -14,7 +14,7 @@ import { DefiComponent } from './defi/defi.component';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/accueil',
+    redirectTo: 'accueil',
     pathMatch: 'full'
   },
   {
