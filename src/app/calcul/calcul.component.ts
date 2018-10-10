@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Injectable, Input } from '@angular/core';
 import { CalculService } from '../calcul.service';
-import { startTimeRange } from '@angular/core/src/profile/wtf_impl';
+import * as globals from '../globals';
 
 @Component({
   selector: 'app-calcul',
@@ -11,7 +11,7 @@ export class CalculComponent implements OnInit {
 
   @Output() nextQuestion = new EventEmitter<boolean>();
 
-  @Input() difficulte: String;
+  @Input() difficulte: number;
 
   private parameters;
   private userAnswer: number;
@@ -29,8 +29,10 @@ export class CalculComponent implements OnInit {
 
   ngOnInit() {
 
-    this.setRange(this.difficulte);
+    // this.setRange(this.difficulte);
     this.setCalcul();
+    console.log(this.difficulte);
+    console.log(globals.ADDITION_RANGES[this.difficulte]);
   }
 
   additionAnswer() {
@@ -60,22 +62,31 @@ export class CalculComponent implements OnInit {
     this.answerCheck = null;
     this.boutonValider = 'Valider';
     this.boutonCalculSuivant = 'Calcul Suivant';
-    this.operationCase = this.calculService.randomNumber(4);
+    // this.operationCase = this.calculService.randomNumber(4);
+    this.operationCase = Math.floor((Math.random() * 4) + 1);
     switch (this.operationCase) {
       case 1: {
-        this.parameters = this.calculService.setAddition(this.range);
+        // this.parameters = this.calculService.setAddition(this.range);
+        // tslint:disable-next-line:max-line-length
+        this.parameters = this.calculService.setAddition(globals.ADDITION_RANGES[this.difficulte][0], globals.ADDITION_RANGES[this.difficulte][1]);
         break;
       }
       case 2: {
-        this.parameters = this.calculService.setSoustraction(this.range);
+        // this.parameters = this.calculService.setSoustraction(this.range);
+        // tslint:disable-next-line:max-line-length
+        this.parameters = this.calculService.setSoustraction(globals.SOUSTRACTION_RANGES[this.difficulte][0], globals.SOUSTRACTION_RANGES[this.difficulte][1]);
         break;
       }
       case 3: {
-        this.parameters = this.calculService.setMultiplication(this.range);
+        // this.parameters = this.calculService.setMultiplication(this.range);
+        // tslint:disable-next-line:max-line-length
+        this.parameters = this.calculService.setMultiplication(globals.MULTIPLICATION_RANGES[this.difficulte][0], globals.MULTIPLICATION_RANGES[this.difficulte][1]);
         break;
       }
       case 4: {
-        this.parameters = this.calculService.setDivison(this.range);
+        // this.parameters = this.calculService.setDivison(this.range);
+        // tslint:disable-next-line:max-line-length
+        this.parameters = this.calculService.setDivison(globals.DIVISION_RANGES[this.difficulte][0], globals.DIVISION_RANGES[this.difficulte][1]);
         break;
       }
     }
@@ -87,13 +98,13 @@ export class CalculComponent implements OnInit {
     return this.nbQuestion;
   }
 
-  setRange(difficulte) {
-    if (difficulte === 'facile') {
-      this.range = 15;
-    } else if (difficulte === 'moyen') {
-      this.range = 75;
-    } else if (difficulte === 'difficile') {
-      this.range = 1000;
-    }
-  }
+  // setRange(difficulte) {
+  //   if (difficulte === 'facile') {
+  //     this.range = 15;
+  //   } else if (difficulte === 'moyen') {
+  //     this.range = 75;
+  //   } else if (difficulte === 'difficile') {
+  //     this.range = 1000;
+  //   }
+  // }
 }

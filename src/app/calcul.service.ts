@@ -14,13 +14,13 @@ export class CalculService {
     return randomNumbers;
   }
 
-  randomNumber(range: number) {
-    return Math.floor((Math.random() * range) + 1);
+  randomNumber(min: number, max: number) {
+    return Math.floor((Math.random() * (max - min + 1)) + min);
   }
 
-  setAddition(range: number) {
-    const firstNumber: number = this.randomNumber(range);
-    const secondNumber: number = this.randomNumber(range);
+  setAddition(min: number, max: number) {
+    const firstNumber: number = this.randomNumber(min, max);
+    const secondNumber: number = this.randomNumber(min, max);
     const answer: number = firstNumber + secondNumber;
     const calculParameters = {
       'firstNumber': firstNumber,
@@ -32,9 +32,9 @@ export class CalculService {
     return calculParameters;
   }
 
-  setSoustraction(range: number) {
-    const firstNumber: number = this.randomNumber(range);
-    const secondNumber: number = this.randomNumber(firstNumber);
+  setSoustraction(min: number, max: number) {
+    const firstNumber: number = this.randomNumber(min, max);
+    const secondNumber: number = this.randomNumber(min, max);
     const answer: number = firstNumber - secondNumber;
     const calculParameters = {
       'firstNumber': firstNumber,
@@ -46,9 +46,9 @@ export class CalculService {
     return calculParameters;
   }
 
-  setMultiplication(range: number) {
-    const firstNumber: number = this.randomNumber(range);
-    const secondNumber: number = this.randomNumber(range);
+  setMultiplication(min: number, max: number) {
+    const firstNumber: number = this.randomNumber(min, max);
+    const secondNumber: number = this.randomNumber(min, max);
     const answer: number = firstNumber * secondNumber;
     const calculParameters = {
       'firstNumber': firstNumber,
@@ -60,9 +60,11 @@ export class CalculService {
     return calculParameters;
   }
 
-  setDivison(range: number) {
-    const secondNumber: number = this.randomNumber(range);
-    const firstNumber: number = secondNumber * this.randomNumber(range);
+  setDivison(min: number, max: number) {
+    // const secondNumber: number = this.randomNumber(range);
+    // const firstNumber: number = secondNumber * this.randomNumber(range);
+    const firstNumber: number = this.randomNumber(min, max);
+    const secondNumber: number = this.getRandomItemInArray(this.findDivisors(firstNumber));
     const answer: number = firstNumber / secondNumber;
     const calculParameters = {
       'firstNumber': firstNumber,
@@ -72,6 +74,25 @@ export class CalculService {
       'operator': '÷'
     };
     return calculParameters;
+  }
+
+  findDivisors(n: number) {
+    const divisors: number[] = [];
+    for (let i = 1; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) {
+        if (n / i === i) {
+          divisors.push(i);
+        } else {
+          divisors.push(i);
+          divisors.push(n / i);
+        }
+      }
+    }
+    return divisors;
+  }
+
+  getRandomItemInArray(array: any[]) {
+    return array[Math.floor(Math.random() * array.length)];
   }
 
 }
