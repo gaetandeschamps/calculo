@@ -2,38 +2,88 @@
   background-color: #27a744;
 }
 
+#lvl-1:hover {
+  background-color: #135322;
+  color: white;
+}
+
 #lvl-2 {
   background-color: #2dac29;
+}
+
+#lvl-2:hover {
+  background-color: #165614;
+  color: white;
 }
 
 #lvl-3 {
   background-color: #52b22a;
 }
 
+#lvl-3:hover {
+  background-color: #295914;
+  color: white;
+}
+
 #lvl-4 {
   background-color: #79b82c;
+}
+
+#lvl-4:hover {
+  background-color: #3c5c15;
+  color: white;
 }
 
 #lvl-5 {
   background-color: #a2be2d;
 }
 
+#lvl-5:hover {
+  background-color: #515f16;
+  color: white;
+}
+
 #lvl-6 {
   background-color: #c4bb2f;
+}
+
+#lvl-6:hover {
+  background-color: #625d17;
+  color: white;
 }
 
 #lvl-7 {
   background-color: #ca9830;
 }
 
+#lvl-7:hover {
+  background-color: #654c17;
+  color: white;
+}
+
 #lvl-8 {
   background-color: #d07432;
+}
+
+#lvl-8:hover {
+  background-color: #683918;
+  color: white;
 }
 
 #lvl-9 {
   background-color: #d64d33;
 }
 
+#lvl-9:hover {
+  background-color: #6e2416;
+  color: white;
+}
+
 #lvl-10 {
   background-color: #dc3544;
+}
+
+#lvl-10:hover {
+  background-color: #74141c;
+  color: white;
 }

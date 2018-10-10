@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { TrainingComponent } from './training/training.component';
-import { AdditionsComponent } from './training/additions/additions.component';
 import { CalculService } from './calcul.service';
 import { CalculComponent } from './calcul/calcul.component';
 import { DefiComponent } from './defi/defi.component';
@@ -22,16 +20,6 @@ const appRoutes: Routes = [
     component: AccueilComponent
   },
   {
-    path: 'entrainement',
-    component: TrainingComponent,
-    children: [
-      {
-        path: 'calcul',
-        component: CalculComponent
-      }
-    ]
-  },
-  {
     path: 'defi',
     component: DefiComponent
   }
@@ -41,8 +29,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AccueilComponent,
-    TrainingComponent,
-    AdditionsComponent,
     CalculComponent,
     DefiComponent
   ],
