@@ -21,21 +21,19 @@ export class CalculComponent implements OnInit {
   private boutonCalculSuivant: String;
   private nbQuestion = 1;
   private range = 1;
-  private operationCase: number;
+  private operationCase: string;
+  private choixOperations = [];
 
   constructor(
     private calculService: CalculService
   ) { }
 
   ngOnInit() {
-
-    // this.setRange(this.difficulte);
+    this.choixOperations = this.calculService.choixOperations;
     this.setCalcul();
-    console.log(this.difficulte);
-    console.log(globals.ADDITION_RANGES[this.difficulte]);
   }
 
-  additionAnswer() {
+  operationAnswer() {
     if (this.userAnswer === this.parameters.answer) {
       this.answerCheck = true;
     } else {
@@ -62,35 +60,29 @@ export class CalculComponent implements OnInit {
     this.answerCheck = null;
     this.boutonValider = 'Valider';
     this.boutonCalculSuivant = 'Calcul Suivant';
-    // this.operationCase = this.calculService.randomNumber(4);
-    this.operationCase = Math.floor((Math.random() * 4) + 1);
+    this.operationCase = this.choixOperations[Math.floor(Math.random() * this.choixOperations.length)];
     switch (this.operationCase) {
-      case 1: {
-        // this.parameters = this.calculService.setAddition(this.range);
+      case 'addition': {
         // tslint:disable-next-line:max-line-length
         this.parameters = this.calculService.setAddition(globals.ADDITION_RANGES[this.difficulte][0], globals.ADDITION_RANGES[this.difficulte][1]);
         break;
       }
-      case 2: {
-        // this.parameters = this.calculService.setSoustraction(this.range);
+      case 'soustraction': {
         // tslint:disable-next-line:max-line-length
         this.parameters = this.calculService.setSoustraction(globals.SOUSTRACTION_RANGES[this.difficulte][0], globals.SOUSTRACTION_RANGES[this.difficulte][1]);
         break;
       }
-      case 3: {
-        // this.parameters = this.calculService.setMultiplication(this.range);
+      case 'multiplication': {
         // tslint:disable-next-line:max-line-length
         this.parameters = this.calculService.setMultiplication(globals.MULTIPLICATION_RANGES[this.difficulte][0], globals.MULTIPLICATION_RANGES[this.difficulte][1]);
         break;
       }
-      case 4: {
-        // this.parameters = this.calculService.setDivison(this.range);
+      case 'division': {
         // tslint:disable-next-line:max-line-length
         this.parameters = this.calculService.setDivison(globals.DIVISION_RANGES[this.difficulte][0], globals.DIVISION_RANGES[this.difficulte][1]);
         break;
       }
     }
-    console.log(this.parameters);
   }
 
   nombreQuestion() {
@@ -98,13 +90,4 @@ export class CalculComponent implements OnInit {
     return this.nbQuestion;
   }
 
-  // setRange(difficulte) {
-  //   if (difficulte === 'facile') {
-  //     this.range = 15;
-  //   } else if (difficulte === 'moyen') {
-  //     this.range = 75;
-  //   } else if (difficulte === 'difficile') {
-  //     this.range = 1000;
-  //   }
-  // }
 }
