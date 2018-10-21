@@ -1,13 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { CalculService } from './calcul.service';
 import { CalculComponent } from './calcul/calcul.component';
 import { DefiComponent } from './defi/defi.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { ConnexionService } from './connexion.service';
+
 
 const appRoutes: Routes = [
   {
@@ -22,6 +26,10 @@ const appRoutes: Routes = [
   {
     path: 'defi',
     component: DefiComponent
+  },
+  {
+    path: 'connexion',
+    component : ConnexionComponent
   }
 ];
 
@@ -30,15 +38,19 @@ const appRoutes: Routes = [
     AppComponent,
     AccueilComponent,
     CalculComponent,
-    DefiComponent
+    DefiComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    HttpClientModule
+    
   ],
   providers: [
-    CalculService
+    CalculService, ConnexionService
   ],
   bootstrap: [AppComponent]
 })
