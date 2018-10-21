@@ -10,13 +10,13 @@ import { CalculService } from './calcul.service';
 import { CalculComponent } from './calcul/calcul.component';
 import { DefiComponent } from './defi/defi.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { ConnexionService } from './connexion.service';
+
 
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'accueil',
+    redirectTo: 'connexion',
     pathMatch: 'full'
   },
   {
@@ -29,8 +29,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'connexion',
-    component : ConnexionComponent
-  }
+    component: ConnexionComponent
+  },
 ];
 
 @NgModule({
@@ -50,7 +50,7 @@ const appRoutes: Routes = [
     
   ],
   providers: [
-    CalculService, ConnexionService
+    CalculService
   ],
   bootstrap: [AppComponent]
 })

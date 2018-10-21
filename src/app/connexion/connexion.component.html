@@ -1,3 +1,16 @@
-<p>
-  connexion works!
-</p>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Enregistrer un nouveau livre</h2>
+      <form [formGroup]="userForm" (ngSubmit)="onSaveUser()">
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input formControlName="nom" type="text" id="nom" class="form-control">
+        </div>
+        
+        <button class="btn btn-success" [disabled]="userForm.invalid"
+                type="submit">Enregistrer
+        </button>
+  
+      </form>
+    </div>
+  </div>

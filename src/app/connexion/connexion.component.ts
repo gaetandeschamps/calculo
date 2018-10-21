@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserServiceService } from '../user-service.service';
+import { User } from '../models/user.model';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-connexion',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+  userForm : FormGroup;
+  
+  constructor(private formbuilder : FormBuilder, private router: Router, private userService : UserServiceService) { }
+
+  
 
   ngOnInit() {
+    this.initForm;
+    this.userForm = new FormGroup({
+      nom: new FormControl
+    });  
+  }
+
+  initForm(){
+    this.userForm = this.formbuilder.group({
+        nom: ['', Validators.required]
+    });
+  }
+
+  onSaveUser(){
+    const nom=this.userForm.get('nom').value;
+    const newUser= new User(nom);
+    this.userService.createNewUser(newUser);
+    this.router.navigate(['accueil']);
   }
 
 }
