@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class CalculService {
 
+  public choixOperations: string[];
+
   constructor() { }
 
   generateRandomNumbers(range: number) {

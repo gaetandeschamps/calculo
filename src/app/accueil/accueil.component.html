@@ -8,10 +8,17 @@
           <div class="card-header h3">Choisis tes opérations</div>
           <div class="card-body row align-items-center">
             <div class="btn-group-vertical w-75 mx-auto">
+<<<<<<< HEAD
               <button class="btn btn-outline-dark"><i class="fas fa-plus mr-2"></i>Additions</button>
               <button class="btn btn-outline-dark"><i class="fas fa-minus mr-2"></i>Soustractions</button>
               <button class="btn btn-outline-dark"><i class="fas fa-times mr-2"></i>Multiplications</button>
               <button class="btn btn-outline-dark"><i class="fas fa-divide mr-2"></i>Divisions</button>
+=======
+              <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('addition')}" (click)="addOperation('addition')"><i class="fas fa-plus mr-2"></i>Additions</button>
+              <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('soustraction')}" (click)="addOperation('soustraction')"><i class="fas fa-minus mr-2"></i>Soustractions</button>
+              <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('multiplication')}" (click)="addOperation('multiplication')"><i class="fas fa-times mr-2"></i>Multiplications</button>
+              <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('division')}" (click)="addOperation('division')"><i class="fas fa-divide mr-2"></i>Divisions</button>
+>>>>>>> a257e950ed8bede225b784ab28577158c607ae3a
             </div>
           </div>
         </div>
@@ -19,6 +26,7 @@
           <div class="card-header h3">Choisis ton défi</div>
           <div class="card-body row align-items-center">
             <div class="btn-group btn-group-lg mx-auto" role="group">
+<<<<<<< HEAD
               <button id="lvl-1" type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 0}">1</button>
               <button id="lvl-2" type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 1}">2</button>
               <button id="lvl-3" type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 2}">3</button>
@@ -29,6 +37,18 @@
               <button id="lvl-8" type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 7}">8</button>
               <button id="lvl-9" type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 8}">9</button>
               <button id="lvl-10" type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 9}">10</button>
+=======
+              <button id="lvl-1"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 0}" [disabled]="choixOperations.length == 0">1</button>
+              <button id="lvl-2"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 1}" [disabled]="choixOperations.length == 0">2</button>
+              <button id="lvl-3"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 2}" [disabled]="choixOperations.length == 0">3</button>
+              <button id="lvl-4"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 3}" [disabled]="choixOperations.length == 0">4</button>
+              <button id="lvl-5"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 4}" [disabled]="choixOperations.length == 0">5</button>
+              <button id="lvl-6"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 5}" [disabled]="choixOperations.length == 0">6</button>
+              <button id="lvl-7"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 6}" [disabled]="choixOperations.length == 0">7</button>
+              <button id="lvl-8"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 7}" [disabled]="choixOperations.length == 0">8</button>
+              <button id="lvl-9"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 8}" [disabled]="choixOperations.length == 0">9</button>
+              <button id="lvl-10" type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 9}" [disabled]="choixOperations.length == 0">10</button>
+>>>>>>> a257e950ed8bede225b784ab28577158c607ae3a
             </div>
           </div>
         </div>
