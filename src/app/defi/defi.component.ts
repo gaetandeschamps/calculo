@@ -15,7 +15,7 @@ export class DefiComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
-      this.difficulte = params['difficulte'];
+      this.difficulte = Number(params['difficulte']);
     });
   }
 
@@ -34,4 +34,9 @@ export class DefiComponent implements OnInit {
     this.nbFalseAnswers = 0;
   }
 
+  niveauSuivant() {
+    this.difficulte++;
+    this.replay();
+    this.levelDisplay = this.difficulte + 1;
+  }
 }

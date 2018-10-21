@@ -8,15 +8,17 @@
         </div>
         <div class="col-md-2 text-right">
           <h1 class="h2" *ngIf="nbQuestion <= 10">{{nbQuestion}}/10</h1>
+          <h2>Niveau : {{difficulte + 1}}</h2>
         </div>
-        <!-- <p>bonnes réponses = {{nbGoodAnswers}}</p>
-        <p>mauvaises réponses = {{nbFalseAnswers}}</p> -->
       </div>
       <app-calcul [difficulte]=difficulte (nextQuestion)="nextQuestion($event)" *ngIf="nbQuestion <= 10" else results></app-calcul>
       <div *ngIf="nbQuestion > 10">
         <h2>{{nbGoodAnswers}} bonne(s) réponses</h2>
         <h2>{{nbFalseAnswers}} mauvaise(s) réponses</h2>
-        <button #rejouer class="btn btn-outline-dark mt-4" (click)="replay()">Rejouer ? {{ rejouer.focus() }}</button>
+        <h3 *ngIf="nbGoodAnswers >= 9">Bien joué ! Tu as réussi le niveau : {{niveau}} <i class="far fa-smile-beam"></i></h3>
+        <h3 *ngIf="nbFalseAnswers > 1">Malheuresement, tu n'as pas complété ce niveau <i class="far fa-frown-open"></i></h3>
+        <button #rejouer class="btn btn-outline-dark mt-4" (click)="replay()">Rententer ma chance ? {{ rejouer.focus() }}</button>&nbsp;
+        <button *ngIf="nbGoodAnswers >= 9" class="btn btn-outline-dark mt-4" (click)="niveauSuivant()">Passer au niveau suivant</button>
       </div>
     </div>
   </div>
