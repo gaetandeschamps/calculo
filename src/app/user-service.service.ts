@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from './models/user.model'
-import { Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 import * as firebase from 'firebase';
 import Datasnapshot = firebase.database.DataSnapshot;
 
@@ -21,12 +21,15 @@ export class UserServiceService {
   }
 
   getUsers(){
-    firebase.database().ref('/users')
-      .on('value', (data: Datasnapshot) => {
-        this.users = data.val() ? data.val() : [];
-        this.emitUser();
-      }
-    );
+      
+      var ref= firebase.database().ref('/users')
+      //return allUser;
+      ref.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childKey = childSnapshot.key;
+          var childData = childSnapshot.val();
+        });
+      });
   }
 
   getSingleUser(id: number) {
