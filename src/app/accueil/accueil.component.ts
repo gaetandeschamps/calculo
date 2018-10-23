@@ -13,16 +13,17 @@ import 'bootstrap';
 export class AccueilComponent implements OnInit, OnDestroy {
 
   private choixOperations = [];
+  private difficulte: number;
 
   constructor(
     private calculService: CalculService
   ) { }
 
   ngOnInit() {
-    $(function() {
+    $(function () {
       $('[data-toggle="tooltip"]').tooltip();
     });
-    $('.my_tooltip').tooltip({html: true});
+    $('.my_tooltip').tooltip({ html: true });
   }
 
   addOperation(operation: string) {
@@ -31,6 +32,10 @@ export class AccueilComponent implements OnInit, OnDestroy {
     } else {
       this.choixOperations.push(operation);
     }
+  }
+
+  setDifficulty(difficulteChosen: number) {
+    this.difficulte = difficulteChosen;
   }
 
   ngOnDestroy() {

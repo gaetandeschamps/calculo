@@ -20,7 +20,7 @@ const appRoutes: Routes = [
     component: AccueilComponent
   },
   {
-    path: 'defi',
+    path: 'defi/:difficulte',
     component: DefiComponent
   }
 ];

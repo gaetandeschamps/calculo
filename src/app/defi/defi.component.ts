@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-defi',
@@ -13,14 +14,14 @@ export class DefiComponent implements OnInit {
   private nbFalseAnswers: number;
   private difficulte: number;
 
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.difficulte = Number(params['difficulte']);
-    });
-  }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.replay();
+    this.difficulte = Number(this.activatedRoute.snapshot.paramMap.get('difficulte'));
   }
 
   nextQuestion(answerType: boolean) {
