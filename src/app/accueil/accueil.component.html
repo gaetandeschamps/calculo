@@ -19,16 +19,126 @@
           <div class="card-header h3">Choisis ton défi</div>
           <div class="card-body row align-items-center">
             <div class="btn-group btn-group-lg mx-auto" role="group">
-              <button id="lvl-1"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 0}" [disabled]="choixOperations.length == 0">1</button>
-              <button id="lvl-2"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 1}" [disabled]="choixOperations.length == 0">2</button>
-              <button id="lvl-3"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 2}" [disabled]="choixOperations.length == 0">3</button>
-              <button id="lvl-4"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 3}" [disabled]="choixOperations.length == 0">4</button>
-              <button id="lvl-5"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 4}" [disabled]="choixOperations.length == 0">5</button>
-              <button id="lvl-6"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 5}" [disabled]="choixOperations.length == 0">6</button>
-              <button id="lvl-7"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 6}" [disabled]="choixOperations.length == 0">7</button>
-              <button id="lvl-8"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 7}" [disabled]="choixOperations.length == 0">8</button>
-              <button id="lvl-9"  type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 8}" [disabled]="choixOperations.length == 0">9</button>
-              <button id="lvl-10" type="button" class="btn" routerLink="/defi" [queryParams]="{difficulte: 9}" [disabled]="choixOperations.length == 0">10</button>
+              <button 
+                id="lvl-1"  
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 0}" 
+                [disabled]="choixOperations.length == 0" 
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 5 <br/> Soustractions: 0 à 5, positif <br/> Multiplications: 1 à 2 <br/> Divisions: jusqu'à 4/2">
+                1
+              </button>
+              <button 
+                id="lvl-2"  
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 1}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 9 <br/> Soustractions: 0 à 9, positif <br/> Multiplications: 1 à 4 <br/> Divisions: jusqu'à 12/4">
+                2
+              </button>
+              <button 
+                id="lvl-3"  
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 2}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 20<br/>Soustractions: 0 à 20, positif <br/> Multiplications: 1 à 6<br/> Divisions: jusqu'à 20/5">
+                3
+              </button>
+              <button 
+                id="lvl-4"  
+                type="button"
+                class="btn my_tooltip"
+                routerLink="/defi"
+                [queryParams]="{difficulte: 3}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 39<br/> Soustractions: 0 à 30<br/> Multiplications: 1 à 8<br/> Divisions: jusqu'à 30/6">
+                4
+              </button>
+              <button 
+                id="lvl-5"  
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 4}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 40 à 50<br/> Soustractions: 0 à 50<br/> Multiplications: 0 à 10<br/> Divisions: jusqu'à 56/8">
+                5
+                </button>
+              <button 
+                id="lvl-6"  
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 5}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 100<br/> Soustractions: 0 à 200<br/> Multiplications: -10 à 10<br/> Divisions: jusqu'à 100/10">
+                6
+              </button>
+              <button 
+                id="lvl-7"  
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 6}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 499<br/> Soustractions: 0 à 499<br/> Multiplications: 8 à 12<br/> Divisions: jusqu'à 100/10, négatif">
+                7
+                </button>
+              <button 
+                id="lvl-8"  
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 7}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 1000<br/> Soustractions: 0 à 1000<br/> Multiplications: -12 à 12<br/> Divisions: jusqu'à 144/12">
+                8
+              </button>
+              <button 
+                id="lvl-9"  
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 8}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 5000<br/> Soustractions: 0 à 5000<br/> Multiplications: -16 à 16<br/> Divisions: jusqu'à 196/14">
+                9
+              </button>
+              <button 
+                id="lvl-10" 
+                type="button" 
+                class="btn my_tooltip" 
+                routerLink="/defi" 
+                [queryParams]="{difficulte: 9}" 
+                [disabled]="choixOperations.length == 0"
+                data-toggle="tooltip" 
+                html data-placement="top" 
+                title="Additions: 0 à 999999<br/> Soustractions: 0 à 999999<br/> Multiplications: -20 à 20<br/> Divisions: jusqu'à 400/20">
+                10
+              </button>
             </div>
           </div>
         </div>

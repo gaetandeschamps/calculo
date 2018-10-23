@@ -1,11 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgModule } from '@angular/core';
 import { CalculService } from '../calcul.service';
+import * as $ from 'jquery';
+import 'popper.js';
+import 'bootstrap';
 
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
+
 export class AccueilComponent implements OnInit, OnDestroy {
 
   private choixOperations = [];
@@ -15,6 +19,10 @@ export class AccueilComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    $(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+    $('.my_tooltip').tooltip({html: true});
   }
 
   addOperation(operation: string) {
@@ -29,3 +37,5 @@ export class AccueilComponent implements OnInit, OnDestroy {
     this.calculService.choixOperations = this.choixOperations;
   }
 }
+
+
