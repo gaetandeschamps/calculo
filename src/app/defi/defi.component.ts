@@ -37,6 +37,5 @@ export class DefiComponent implements OnInit {
   niveauSuivant() {
     this.difficulte++;
     this.replay();
-    this.levelDisplay = this.difficulte + 1;
   }
 }

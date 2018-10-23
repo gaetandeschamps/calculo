@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -34,67 +34,72 @@ export class CalculService {
     return calculParameters;
   }
 
-  setSoustraction(min: number, max: number) {
+  setSoustraction(difficulte: number, min: number, max: number) {
     const firstNumber: number = this.randomNumber(min, max);
-    const secondNumber: number = this.randomNumber(min, max);
-    const answer: number = firstNumber - secondNumber;
-    const calculParameters = {
-      'firstNumber': firstNumber,
-      'secondNumber': secondNumber,
-      'answer': answer,
-      'title': 'Résous la soustraction',
-      'operator': '-'
-    };
+    let secondNumber;
+    if (difficulte <= 2) {
+      secondNumber = this.randomNumber(min, firstNumber);
+    } else {
+      secondNumber = this.randomNumber(min, max);
+    }
+  const answer: number = firstNumber - secondNumber;
+  const calculParameters = {
+    'firstNumber': firstNumber,
+    'secondNumber': secondNumber,
+    'answer': answer,
+    'title': 'Résous la soustraction',
+    'operator': '-'
+  };
     return calculParameters;
   }
 
-  setMultiplication(min: number, max: number) {
-    const firstNumber: number = this.randomNumber(min, max);
-    const secondNumber: number = this.randomNumber(min, max);
-    const answer: number = firstNumber * secondNumber;
-    const calculParameters = {
-      'firstNumber': firstNumber,
-      'secondNumber': secondNumber,
-      'answer': answer,
-      'title': 'Résous la multiplication',
-      'operator': 'x'
-    };
-    return calculParameters;
-  }
+setMultiplication(min: number, max: number) {
+  const firstNumber: number = this.randomNumber(min, max);
+  const secondNumber: number = this.randomNumber(min, max);
+  const answer: number = firstNumber * secondNumber;
+  const calculParameters = {
+    'firstNumber': firstNumber,
+    'secondNumber': secondNumber,
+    'answer': answer,
+    'title': 'Résous la multiplication',
+    'operator': 'x'
+  };
+  return calculParameters;
+}
 
-  setDivison(min: number, max: number) {
-    // const secondNumber: number = this.randomNumber(range);
-    // const firstNumber: number = secondNumber * this.randomNumber(range);
-    const firstNumber: number = this.randomNumber(min, max);
-    const secondNumber: number = this.getRandomItemInArray(this.findDivisors(firstNumber));
-    const answer: number = firstNumber / secondNumber;
-    const calculParameters = {
-      'firstNumber': firstNumber,
-      'secondNumber': secondNumber,
-      'answer': answer,
-      'title': 'Résous la division',
-      'operator': '÷'
-    };
-    return calculParameters;
-  }
+setDivison(min: number, max: number) {
+  // const secondNumber: number = this.randomNumber(range);
+  // const firstNumber: number = secondNumber * this.randomNumber(range);
+  const firstNumber: number = this.randomNumber(min, max);
+  const secondNumber: number = this.getRandomItemInArray(this.findDivisors(firstNumber));
+  const answer: number = firstNumber / secondNumber;
+  const calculParameters = {
+    'firstNumber': firstNumber,
+    'secondNumber': secondNumber,
+    'answer': answer,
+    'title': 'Résous la division',
+    'operator': '÷'
+  };
+  return calculParameters;
+}
 
-  findDivisors(n: number) {
-    const divisors: number[] = [];
-    for (let i = 1; i <= Math.sqrt(n); i++) {
-      if (n % i === 0) {
-        if (n / i === i) {
-          divisors.push(i);
-        } else {
-          divisors.push(i);
-          divisors.push(n / i);
-        }
+findDivisors(n: number) {
+  const divisors: number[] = [];
+  for (let i = 1; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      if (n / i === i) {
+        divisors.push(i);
+      } else {
+        divisors.push(i);
+        divisors.push(n / i);
       }
     }
-    return divisors;
   }
+  return divisors;
+}
 
-  getRandomItemInArray(array: any[]) {
-    return array[Math.floor(Math.random() * array.length)];
-  }
+getRandomItemInArray(array: any[]) {
+  return array[Math.floor(Math.random() * array.length)];
+}
 
 }

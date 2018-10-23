@@ -71,7 +71,7 @@ export class CalculComponent implements OnInit {
       }
       case 'soustraction': {
         // tslint:disable-next-line:max-line-length
-        this.parameters = this.calculService.setSoustraction(globals.SOUSTRACTION_RANGES[this.difficulte][0], globals.SOUSTRACTION_RANGES[this.difficulte][1]);
+        this.parameters = this.calculService.setSoustraction(this.difficulte, globals.SOUSTRACTION_RANGES[this.difficulte][0], globals.SOUSTRACTION_RANGES[this.difficulte][1]);
         break;
       }
       case 'multiplication': {
