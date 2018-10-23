@@ -81,7 +81,7 @@ export class CalculComponent implements OnInit {
       }
       case 'division': {
         // tslint:disable-next-line:max-line-length
-        this.parameters = this.calculService.setDivison(globals.DIVISION_RANGES[this.difficulte][0], globals.DIVISION_RANGES[this.difficulte][1]);
+        this.parameters = this.calculService.setDivison(globals.DIVISION_RANGES[this.difficulte][0], globals.DIVISION_RANGES[this.difficulte][1], globals.DIVISION_NUMERATORS[this.difficulte]);
         break;
       }
     }
