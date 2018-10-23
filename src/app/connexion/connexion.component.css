@@ -1,0 +1,9 @@
+h3,h2{
+    margin-bottom: 30px;
+}
+
+input{
+    margin-left: 10%;
+    max-width: 80%;
+    padding-right: 10%;
+}

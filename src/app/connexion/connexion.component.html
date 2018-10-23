@@ -1,16 +1,22 @@
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h2>Enregistrer un nouveau livre</h2>
-      <form [formGroup]="userForm" (ngSubmit)="onSaveUser()">
-        <div class="form-group">
-          <label for="nom">Nom</label>
-          <input formControlName="nom" type="text" id="nom" class="form-control">
+<div class="row h-100">
+    <div class="card m-auto w-100">
+      <div class="card-body text-center">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Bienvenue sur calculo, le calcul rigolo !</h2>
+            <h3>Entre ton prénom</h3>
+            <form [formGroup]="userForm" (ngSubmit)="onSaveUser()">
+              <div class="form-group">
+                <input formControlName="nom" type="text" id="nom" class="form-control" placeholder="Prénom">
+              </div>
+            
+              <button class="btn btn-success" [disabled]="userForm.invalid"
+                      type="submit">Se connecter
+              </button>
+      
+            </form>
         </div>
-        
-        <button class="btn btn-success" [disabled]="userForm.invalid"
-                type="submit">Enregistrer
-        </button>
-  
-      </form>
+      </div>
     </div>
   </div>
+</div>
