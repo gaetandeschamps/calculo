@@ -33,7 +33,7 @@ export class ConnexionComponent implements OnInit {
   onSaveUser(){
     const nom=this.userForm.get('nom').value;
     const newUser= new User(nom);
-    console.log(this.userService.getUsers());
+    this.userService.getUsers();
    
     //this.userService.createNewUser(newUser);
     //this.router.navigate(['accueil']);

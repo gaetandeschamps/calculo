@@ -22,13 +22,23 @@ export class UserServiceService {
 
   getUsers(){
       
-      var ref= firebase.database().ref('/users')
+      var ref= firebase.database().ref('/users');
       //return allUser;
-      ref.once('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-          var childKey = childSnapshot.key;
-          var childData = childSnapshot.val();
-        });
+      // ref.once('value', function(snapshot) {
+      //   snapshot.forEach(function(childSnapshot) {
+      //     var childKey = childSnapshot.key;
+      //     var childData = childSnapshot.val();
+      //   });
+      // });
+
+      return ref.once('value', function(snapshot){
+        if(snapshot.exists()){
+          snapshot.forEach(function(data){
+              var nom = data.val().nom;
+              this.users.
+              console.log(nom)
+          });
+        }
       });
   }
 
