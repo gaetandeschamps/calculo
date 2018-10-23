@@ -22,6 +22,7 @@ export class ConnexionComponent implements OnInit {
     this.userForm = new FormGroup({
       nom: new FormControl
     });  
+    this.userService.getUsers;
   }
 
   initForm(){

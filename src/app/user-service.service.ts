@@ -9,7 +9,7 @@ import Datasnapshot = firebase.database.DataSnapshot;
 })
 export class UserServiceService {
 
-  users: User[]=[];
+  users: Array<User>;
   userSubject=new Subject<User[]>();
 
   emitUser(){
@@ -30,16 +30,19 @@ export class UserServiceService {
       //     var childData = childSnapshot.val();
       //   });
       // });
-
-      return ref.once('value', function(snapshot){
-        if(snapshot.exists()){
-          snapshot.forEach(function(data){
-              var nom = data.val().nom;
-              this.users.
-              console.log(nom)
+      var that=this;
+      ref.once('value', function(snapshot){ //with this line, snapshot gets all users
+        if(snapshot.exists()) {
+          snapshot.forEach(function(data) {
+            that.users.push(data.val());
           });
         }
+        // that.users.forEach(element => {
+        //   console.log(element.nom)
+        // });
       });
+
+      return this.users;
   }
 
   getSingleUser(id: number) {
@@ -57,7 +60,8 @@ export class UserServiceService {
   }
 
   constructor(){
-    this.getUsers();
+    // this.getUsers();
+    this.users = new Array<User>();
   }
 
   createNewUser(newUser: User) {
