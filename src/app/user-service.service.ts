@@ -9,6 +9,7 @@ import Datasnapshot = firebase.database.DataSnapshot;
 })
 export class UserServiceService {
 
+  loggedUser: User;
   users: Array<User>;
   userSubject=new Subject<User[]>();
 
@@ -35,14 +36,13 @@ export class UserServiceService {
         if(snapshot.exists()) {
           snapshot.forEach(function(data) {
             that.users.push(data.val());
+            console.log(that.users[that.users.length-1].name)
           });
         }
         // that.users.forEach(element => {
         //   console.log(element.nom)
         // });
       });
-
-      return this.users;
   }
 
   getSingleUser(id: number) {

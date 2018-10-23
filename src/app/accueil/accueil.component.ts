@@ -1,5 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CalculService } from '../calcul.service';
+import { UserServiceService } from '../user-service.service';
+import { User } from 'firebase';
+import { UserAuthentifie } from '../loggedUserNameSpace';
 
 @Component({
   selector: 'app-accueil',
@@ -9,12 +12,24 @@ import { CalculService } from '../calcul.service';
 export class AccueilComponent implements OnInit, OnDestroy {
 
   private choixOperations = [];
+  private loggedUser:User=null;
 
   constructor(
-    private calculService: CalculService
+    private calculService: CalculService,
+    private userService: UserServiceService
   ) { }
 
   ngOnInit() {
+    this.checkIfUserAuthenticated();
+  }
+
+  checkIfUserAuthenticated(): void {
+    console.log("namespace"+UserAuthentifie.userLogged.name);
+    this.loggedUser=this.loggedUser;
+  }
+
+  loggedUserIsTrue():Boolean{
+    return UserAuthentifie.userLogged.name!="ERREUR";
   }
 
   addOperation(operation: string) {

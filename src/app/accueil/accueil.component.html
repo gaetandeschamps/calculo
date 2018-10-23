@@ -1,6 +1,8 @@
 <div class="row h-100">
   <div class="card m-auto w-100">
     <div class="card-body text-center">
+      <button *ngIf="loggedUserIsTrue()===false" type = "button" class = "btn float-right position-sticky" routerLink="/connexion" routerLinkActive="router-link-active">Connexion</button>
+      <button *ngIf="loggedUserIsTrue()" type = "button" class = "btn float-right position-sticky" routerLink="/profil" routerLinkActive="router-link-active">Profil</button>
       <h1 class="card-title">Calculo</h1>
       <h2 class="card-subtitle text-muted">Les calculs rigolos</h2>
       <div class="card-deck mt-3">

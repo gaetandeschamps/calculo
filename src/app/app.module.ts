@@ -10,6 +10,7 @@ import { CalculService } from './calcul.service';
 import { CalculComponent } from './calcul/calcul.component';
 import { DefiComponent } from './defi/defi.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 
@@ -30,7 +31,10 @@ const appRoutes: Routes = [
   {
     path: 'connexion',
     component: ConnexionComponent
-  },
+  },{
+    path: 'profil',
+    component: ProfilComponent
+  }
 ];
 
 @NgModule({
@@ -39,7 +43,8 @@ const appRoutes: Routes = [
     AccueilComponent,
     CalculComponent,
     DefiComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

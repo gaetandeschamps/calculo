@@ -1,0 +1,15 @@
+<div class="row h-100">
+    <div class="card m-auto w-100">
+        <div class="card-body text-center">
+             <h1 class="card-title">Bonjour {{profilUtilisateur.name}} </h1>
+        </div>
+        <button (onclick)="deconnexionDuUser()" type = "button" class = "btn float-right position-sticky">Déconnexion</button>
+        
+        <div class="btn-group-vertical w-75 mx-auto">
+                <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('addition')}" (click)="addOperation('addition')"><i class="fas fa-plus mr-2"></i>Additions</button>
+                <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('soustraction')}" (click)="addOperation('soustraction')"><i class="fas fa-minus mr-2"></i>Soustractions</button>
+                <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('multiplication')}" (click)="addOperation('multiplication')"><i class="fas fa-times mr-2"></i>Multiplications</button>
+                <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('division')}" (click)="addOperation('division')"><i class="fas fa-divide mr-2"></i>Divisions</button>
+        </div>
+    </div>
+</div>
