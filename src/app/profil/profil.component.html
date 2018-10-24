@@ -4,6 +4,10 @@
              <h1 class="card-title">Bonjour {{profilUtilisateur.name}} </h1>
             <button class="btn float-right" (click)="deconnexionDuUser()" type = "button" >Déconnexion</button>
         </div>
+        <div class="col-md-2 text-left">
+                <button routerLink="/accueil" routerLinkActive="router-link-active" class="btn btn-outline-dark ml-2 mt-1"><i
+                    class="fas fa-home"></i></button>
+              </div>
         <div class="card-body row align-items-center">
             <table>
                 <tr><td><h3><i class="fas fa-plus mr-2"></i>Additions : </h3></td><td></td><td><h3>Niveau {{profilUtilisateur.scores[0]}}</h3></td></tr>
