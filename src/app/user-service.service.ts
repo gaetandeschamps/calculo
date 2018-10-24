@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {User} from './models/user.model'
+import { User } from './models/user.model'
 import { Subject } from 'rxjs';
 import * as firebase from 'firebase';
 import Datasnapshot = firebase.database.DataSnapshot;
@@ -11,51 +11,50 @@ export class UserServiceService {
 
   loggedUser: User;
   users: Array<User>;
-  userSubject=new Subject<User[]>();
+  userSubject = new Subject<User[]>();
 
-  emitUser(){
+  emitUser() {
     this.userSubject.next(this.users);
   }
 
-  saveUsers(){
+  saveUsers() {
     firebase.database().ref('/users').set(this.users);
   }
 
-  saveScore(user: User, score : number[]){
-    var userIndexToUpdate = this.users.findIndex(
-    (bookEl) => {
-      if(bookEl === user) {
-        return true;
-      }
-    });
-    console.log("index du user : "+userIndexToUpdate);
+  saveScore(user: User, score: number[]) {
+    const userIndexToUpdate = this.users.findIndex(
+      (bookEl) => {
+        if (bookEl === user) {
+          return true;
+        }
+      });
+    console.log('index du user : ' + userIndexToUpdate);
     this.users[userIndexToUpdate].scores = score;
     this.saveUsers();
     this.emitUser();
   }
 
-  getUsers(){
-      
-      var ref= firebase.database().ref('/users');
-      //return allUser;
-      // ref.once('value', function(snapshot) {
-      //   snapshot.forEach(function(childSnapshot) {
-      //     var childKey = childSnapshot.key;
-      //     var childData = childSnapshot.val();
-      //   });
+  getUsers() {
+    const ref = firebase.database().ref('/users');
+    // return allUser;
+    // ref.once('value', function(snapshot) {
+    //   snapshot.forEach(function(childSnapshot) {
+    //     var childKey = childSnapshot.key;
+    //     var childData = childSnapshot.val();
+    //   });
+    // });
+    const that = this;
+    ref.once('value', function (snapshot) { // with this line, snapshot gets all users
+      if (snapshot.exists()) {
+        snapshot.forEach(function (data) {
+          that.users.push(data.val());
+          console.log(that.users[that.users.length - 1].name);
+        });
+      }
+      // that.users.forEach(element => {
+      //   console.log(element.nom)
       // });
-      var that=this;
-      ref.once('value', function(snapshot){ //with this line, snapshot gets all users
-        if(snapshot.exists()) {
-          snapshot.forEach(function(data) {
-            that.users.push(data.val());
-            console.log(that.users[that.users.length-1].name)
-          });
-        }
-        // that.users.forEach(element => {
-        //   console.log(element.nom)
-        // });
-      });
+    });
   }
 
   getSingleUser(id: number) {
@@ -72,7 +71,7 @@ export class UserServiceService {
     );
   }
 
-  constructor(){
+  constructor() {
     // this.getUsers();
     this.users = new Array<User>();
   }
@@ -86,7 +85,7 @@ export class UserServiceService {
   removeUser(user: User) {
     const userIndexToRemove = this.users.findIndex(
       (bookEl) => {
-        if(bookEl === user) {
+        if (bookEl === user) {
           return true;
         }
       }
@@ -95,5 +94,5 @@ export class UserServiceService {
     this.saveUsers();
     this.emitUser();
   }
-  
+
 }

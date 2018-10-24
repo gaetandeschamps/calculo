@@ -13,19 +13,19 @@ export class CalculComponent implements OnInit {
 
   @Input() difficulte: number;
 
-  private parameters;
-  private userAnswer: number;
-  private answerCheck: boolean;
-  private nbredeVie = 1;
-  private boutonValider: String;
-  private boutonCalculSuivant: String;
-  private nbQuestion = 1;
-  private range = 1;
-  private operationCase: string;
-  private choixOperations = [];
+   parameters;
+   userAnswer: number;
+   answerCheck: boolean;
+   nbredeVie = 1;
+   boutonValider: String;
+   boutonCalculSuivant: String;
+   nbQuestion = 1;
+   range = 1;
+   operationCase: string;
+   choixOperations = [];
 
   constructor(
-    private calculService: CalculService
+    public calculService: CalculService
   ) { }
 
   ngOnInit() {

@@ -12,46 +12,46 @@ import { UserAuthentifie } from '../loggedUserNameSpace';
 })
 export class ConnexionComponent implements OnInit {
 
-  userForm : FormGroup;
-  
-  constructor(private formbuilder : FormBuilder, private router: Router, private userService : UserServiceService) { }
-  
+  userForm: FormGroup;
+
+  constructor(private formbuilder: FormBuilder, private router: Router, private userService: UserServiceService) { }
+
 
   ngOnInit() {
     this.userService.getUsers();
-    this.initForm;
+    this.initForm();
     this.userForm = new FormGroup({
       nom: new FormControl
     });
   }
 
-  initForm(){
+  initForm() {
     this.userForm = this.formbuilder.group({
-        nom: ['', Validators.required]
+      nom: ['', Validators.required]
     });
   }
 
-  onSaveUser(){
-    const nom=this.userForm.get('nom').value;
-    const newUser= new User(nom);
-    console.log("namespace"+UserAuthentifie.userLogged.name);
+  onSaveUser() {
+    const nom = this.userForm.get('nom').value;
+    const newUser = new User(nom);
+    console.log('namespace' + UserAuthentifie.userLogged.name);
 
-    var flag:boolean = true; //utilisateur considéré comme nouveau, sauf si son nom existe déjà
+    let flag: Boolean = true; // utilisateur considéré comme nouveau, sauf si son nom existe déjà
     this.userService.users.forEach(element => {
-      if(newUser.equals(element.name)){
-        flag=false;
-        UserAuthentifie.userLogged=element;
-        console.log("ancien user")
+      if (newUser.equals(element.name)) {
+        flag = false;
+        UserAuthentifie.userLogged = element;
+        console.log('ancien user');
       }
     });
 
-    if(flag){
+    if (flag) {
       this.userService.createNewUser(newUser);
-      UserAuthentifie.userLogged=this.userService.users[this.userService.users.length-1];
-      console.log("nouveau user")
+      UserAuthentifie.userLogged = this.userService.users[this.userService.users.length - 1];
+      console.log('nouveau user');
     }
 
-    console.log("connexion namespace "+UserAuthentifie.userLogged.name);
+    console.log('connexion namespace ' + UserAuthentifie.userLogged.name);
 
     this.router.navigate(['accueil']);
   }

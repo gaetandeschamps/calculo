@@ -12,12 +12,12 @@ import { switchMap } from 'rxjs/operators';
 })
 export class DefiComponent implements OnInit {
 
-  private nbQuestion: number;
-  private nbGoodAnswers: number;
-  private nbFalseAnswers: number;
-  private difficulte: number;
+   nbQuestion: number;
+   nbGoodAnswers: number;
+   nbFalseAnswers: number;
+   difficulte: number;
 
-  constructor(private activatedRoute: ActivatedRoute, private userService: UserServiceService, private calculService: CalculService) {
+  constructor(public activatedRoute: ActivatedRoute, public userService: UserServiceService, public calculService: CalculService) {
     this.activatedRoute.queryParams.subscribe(params => {
       this.difficulte = params['difficulte'];
     });
@@ -35,14 +35,14 @@ export class DefiComponent implements OnInit {
   }
 
   stockageScore() {
-    var that = this;
-    if (that.nbQuestion == 11) {
-      if (that.nbGoodAnswers > 8) { //alors stockage dans la BDD
-        console.log("stockage BDD : " + score);
-        that.userService.getUsers;
-        var score: number[] = [0, 0, 0, 0];
-        var difficulte: number = Number(that.difficulte);
-        difficulte = difficulte + 1;
+    const that = this;
+    if (that.nbQuestion === 11) {
+      if (that.nbGoodAnswers > 8) { // alors stockage dans la BDD
+        const score: number[] = [0, 0, 0, 0];
+        console.log('stockage BDD : ' + score);
+        that.userService.getUsers();
+        const difficulte: number = Number(that.difficulte);
+        this.difficulte = difficulte + 1;
         that.calculService.choixOperations.forEach(element => {
           switch (element) {
             case 'addition': {
@@ -63,11 +63,11 @@ export class DefiComponent implements OnInit {
             }
           }
         });
-        console.log("stockage BDD : " + score);
+        console.log('stockage BDD : ' + score);
         that.userService.saveScore(UserAuthentifie.userLogged, score);
       }
     }
-    console.log("stockage BDD 22222 : " + that.nbQuestion);
+    console.log('stockage BDD 22222 : ' + that.nbQuestion);
     that.replay();
   }
 

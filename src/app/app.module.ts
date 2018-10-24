@@ -31,7 +31,7 @@ const appRoutes: Routes = [
   {
     path: 'connexion',
     component: ConnexionComponent
-  },{
+  }, {
     path: 'profil',
     component: ProfilComponent
   }

@@ -15,13 +15,13 @@ import 'bootstrap';
 
 export class AccueilComponent implements OnInit, OnDestroy {
 
-  private choixOperations = [];
-  private loggedUser: User = null;
-  private difficulte: number;
+  choixOperations = [];
+  loggedUser: User = null;
+  difficulte: number;
 
   constructor(
-    private calculService: CalculService,
-    private userService: UserServiceService
+    public calculService: CalculService,
+    public userService: UserServiceService
   ) { }
 
   ngOnInit() {

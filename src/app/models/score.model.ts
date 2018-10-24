@@ -1,3 +1,3 @@
-export class score{
-    resultat : number[];
+export class Score {
+    resultat: number[];
 }
