@@ -21,7 +21,7 @@ export class DefiComponent implements OnInit {
 
   ngOnInit() {
     this.replay();
-    this.difficulte = Number(this.activatedRoute.snapshot.paramMap.get('difficulte'));
+    this.difficulte = Number(this.activatedRoute.snapshot.paramMap.get('difficulte')) - 1;
   }
 
   nextQuestion(answerType: boolean) {
