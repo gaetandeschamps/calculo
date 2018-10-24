@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from './models/user.model'
+import { User } from './models/user.model';
 import { Subject } from 'rxjs';
 import * as firebase from 'firebase';
 import Datasnapshot = firebase.database.DataSnapshot;
