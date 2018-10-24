@@ -26,19 +26,19 @@ export class AccueilComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.checkIfUserAuthenticated();
-  }
-
-  checkIfUserAuthenticated(): void {
-    console.log("namespace" + UserAuthentifie.userLogged.name);
-    this.loggedUser = this.loggedUser;
-  }
-
-  loggedUserIsTrue(): Boolean {
-    return UserAuthentifie.userLogged.name != "ERREUR";
     $(function () {
       $('[data-toggle="tooltip"]').tooltip();
     });
     $('.my_tooltip').tooltip({ html: true });
+  }
+
+  checkIfUserAuthenticated(): void {
+    console.log('namespace' + UserAuthentifie.userLogged.name);
+    this.loggedUser = this.loggedUser;
+  }
+
+  loggedUserIsTrue(): Boolean {
+    return UserAuthentifie.userLogged.name !== 'ERREUR';
   }
 
   addOperation(operation: string) {
