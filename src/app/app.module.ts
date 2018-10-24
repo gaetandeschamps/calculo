@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     component: AccueilComponent
   },
   {
-    path: 'defi',
+    path: 'defi/:difficulte',
     component: DefiComponent
   },
   {
@@ -52,7 +52,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     HttpClientModule
-    
   ],
   providers: [
     CalculService

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { UserAuthentifie } from '../loggedUserNameSpace';
 import { UserServiceService } from '../user-service.service';
 import { CalculService } from '../calcul.service';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-defi',
@@ -22,8 +23,10 @@ export class DefiComponent implements OnInit {
     });
   }
 
+
   ngOnInit() {
     this.replay();
+    this.difficulte = Number(this.activatedRoute.snapshot.paramMap.get('difficulte')) - 1;
   }
 
   nextQuestion(answerType: boolean) {
@@ -31,40 +34,40 @@ export class DefiComponent implements OnInit {
     this.nbQuestion++;
   }
 
-  stockageScore(){
+  stockageScore() {
     var that = this;
-    if (that.nbQuestion==11){
-      if (that.nbGoodAnswers>8){ //alors stockage dans la BDD
-        console.log("stockage BDD : "+score);
+    if (that.nbQuestion == 11) {
+      if (that.nbGoodAnswers > 8) { //alors stockage dans la BDD
+        console.log("stockage BDD : " + score);
         that.userService.getUsers;
         var score: number[] = [0, 0, 0, 0];
-        var difficulte : number = Number(that.difficulte);
-        difficulte = difficulte+1;
+        var difficulte: number = Number(that.difficulte);
+        difficulte = difficulte + 1;
         that.calculService.choixOperations.forEach(element => {
-          switch(element){
-            case 'addition':{
-              score[0]=difficulte;
+          switch (element) {
+            case 'addition': {
+              score[0] = difficulte;
               break;
             }
-            case 'soustraction':{
-              score[1]=difficulte;
+            case 'soustraction': {
+              score[1] = difficulte;
               break;
             }
-            case 'multiplication':{
-              score[2]=difficulte;
+            case 'multiplication': {
+              score[2] = difficulte;
               break;
             }
-            case 'division':{
-              score[3]=difficulte;
+            case 'division': {
+              score[3] = difficulte;
               break;
             }
           }
         });
-        console.log("stockage BDD : "+score);
+        console.log("stockage BDD : " + score);
         that.userService.saveScore(UserAuthentifie.userLogged, score);
       }
     }
-    console.log("stockage BDD 22222 : "+that.nbQuestion);
+    console.log("stockage BDD 22222 : " + that.nbQuestion);
     that.replay();
   }
 
@@ -74,4 +77,8 @@ export class DefiComponent implements OnInit {
     this.nbFalseAnswers = 0;
   }
 
+  niveauSuivant() {
+    this.difficulte++;
+    this.replay();
+  }
 }

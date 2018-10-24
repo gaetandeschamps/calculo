@@ -7,7 +7,7 @@
 <h3 *ngIf="answerCheck === false && nbredeVie === 1" class="mt-5 text-danger mb-3">
   Réponse fausse, mais il te reste une chance !
 </h3>
-<h3 *ngIf="nbredeVie === 0 && userAnswer !== answer" class="mt-5 text-danger mb-3">
+<h3 *ngIf="nbredeVie === 0 && userAnswer !== answerBefore3" class="mt-5 text-danger mb-3">
   Dommage, la bonne réponse était : {{parameters.answer}}
 </h3>
 
