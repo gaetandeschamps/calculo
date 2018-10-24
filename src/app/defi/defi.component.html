@@ -16,7 +16,7 @@
       <div *ngIf="nbQuestion > 10">
         <h2>{{nbGoodAnswers}} bonne(s) réponses</h2>
         <h2>{{nbFalseAnswers}} mauvaise(s) réponses</h2>
-        <button #rejouer class="btn btn-outline-dark mt-4" (click)="replay()">Rejouer ? {{ rejouer.focus() }}</button>
+        <button #rejouer class="btn btn-outline-dark mt-4" (click)="stockageScore()">Rejouer ? {{ rejouer.focus() }}</button>
       </div>
     </div>
   </div>

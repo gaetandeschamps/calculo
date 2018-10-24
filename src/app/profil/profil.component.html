@@ -2,14 +2,15 @@
     <div class="card m-auto w-100">
         <div class="card-body text-center">
              <h1 class="card-title">Bonjour {{profilUtilisateur.name}} </h1>
+            <button class="btn float-right" (click)="deconnexionDuUser()" type = "button" >Déconnexion</button>
         </div>
-        <button (onclick)="deconnexionDuUser()" type = "button" class = "btn float-right position-sticky">Déconnexion</button>
-        
-        <div class="btn-group-vertical w-75 mx-auto">
-                <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('addition')}" (click)="addOperation('addition')"><i class="fas fa-plus mr-2"></i>Additions</button>
-                <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('soustraction')}" (click)="addOperation('soustraction')"><i class="fas fa-minus mr-2"></i>Soustractions</button>
-                <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('multiplication')}" (click)="addOperation('multiplication')"><i class="fas fa-times mr-2"></i>Multiplications</button>
-                <button class="btn btn-outline-dark" [ngClass]="{'active' : choixOperations.includes('division')}" (click)="addOperation('division')"><i class="fas fa-divide mr-2"></i>Divisions</button>
+        <div class="card-body row align-items-center">
+            <table>
+                <tr><td><h3><i class="fas fa-plus mr-2"></i>Additions : </h3></td><td></td><td><h3>Niveau {{profilUtilisateur.scores[0]}}</h3></td></tr>
+                <tr><td><h3><i class="fas fa-minus mr-2"></i>Soustractions : </h3></td><td></td><td><h3>Niveau {{profilUtilisateur.scores[1]}}</h3></td></tr>
+                <tr><td><h3><i class="fas fa-times mr-2"></i>Multiplications : </h3></td><td></td><td><h3>Niveau {{profilUtilisateur.scores[2]}}</h3></td></tr>
+                <tr><td><h3><i class="fas fa-divide mr-2"></i>Divisions : </h3></td><td></td><td><h3>Niveau {{profilUtilisateur.scores[3]}}</h3></td></tr>
+            </table>
         </div>
     </div>
 </div>

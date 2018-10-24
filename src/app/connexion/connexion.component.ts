@@ -41,15 +41,17 @@ export class ConnexionComponent implements OnInit {
       if(newUser.equals(element.name)){
         flag=false;
         UserAuthentifie.userLogged=element;
+        console.log("ancien user")
       }
     });
 
     if(flag){
       this.userService.createNewUser(newUser);
       UserAuthentifie.userLogged=this.userService.users[this.userService.users.length-1];
+      console.log("nouveau user")
     }
 
-    console.log("namespace"+UserAuthentifie.userLogged.name);
+    console.log("connexion namespace "+UserAuthentifie.userLogged.name);
 
     this.router.navigate(['accueil']);
   }

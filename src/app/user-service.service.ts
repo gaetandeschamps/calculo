@@ -21,6 +21,19 @@ export class UserServiceService {
     firebase.database().ref('/users').set(this.users);
   }
 
+  saveScore(user: User, score : number[]){
+    var userIndexToUpdate = this.users.findIndex(
+    (bookEl) => {
+      if(bookEl === user) {
+        return true;
+      }
+    });
+    console.log("index du user : "+userIndexToUpdate);
+    this.users[userIndexToUpdate].scores = score;
+    this.saveUsers();
+    this.emitUser();
+  }
+
   getUsers(){
       
       var ref= firebase.database().ref('/users');
